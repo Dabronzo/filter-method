@@ -21,6 +21,15 @@ const people = [
   },
 ];
 
+//filtering for the people that has age equal or above 21
+
+const oldEnough = people.filter(person => person.age >= 21);
+console.log(oldEnough);
+
+const paul = people.filter(person => person.name === "Paul");
+console.log("Paul obj: ", paul);
+
+
 
 // Complex Filtering
 const students = [
@@ -55,3 +64,20 @@ const students = [
     ]
   },
 ];
+
+//Imagine we want a list of candidates that has at leas 5 years experience in the skills set.
+
+//first run on every stundet on the array students
+const candidates = students.filter(stundent => {
+  //then we will filter in the skills array of each student
+  //to check if they have the condictions that we need
+  let strongSkills = stundent.skills.filter(skill => skill.yrsExperience >= 5);
+  //since that in the case o negative the student will be with a empy array so we just want those who has
+  // the >= 5 years so we verify if the new array is greater than 0
+  return strongSkills.length > 0;
+
+})
+
+console.log(candidates);
+
+
